@@ -1,0 +1,18 @@
+### Get doctors list
+GET http://localhost:3001/fetch-doctors
+
+### Get doctor info by ID
+GET http://localhost:3001/fetch-doctor-info/2
+
+### Book an appointment
+POST http://localhost:3001/book-appointment
+Content-Type: application/json
+
+{
+  "doctorId": 2,
+  "patientName": "John Doe",
+  "appointmentDate": "2023-10-01T10:00:00Z"
+}
+
+### Fetch appointments
+GET http://localhost:3001/fetch-appointments

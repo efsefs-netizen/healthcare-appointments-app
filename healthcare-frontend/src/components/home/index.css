@@ -1,0 +1,42 @@
+/* Base styles */
+.home-container {
+  padding-top: 20px;
+}
+
+.top-section {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 40px 20px;
+}
+
+.middle-section button {
+  min-width: 200px;
+}
+
+.why-choose-us-section {
+  margin-top: 40px;
+}
+
+.why-list li {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .top-section {
+    padding: 30px 15px;
+  }
+
+  .why-list li {
+    font-size: 16px;
+  }
+
+  .middle-section {
+    flex-direction: column !important;
+  }
+
+  .middle-section button {
+    width: 100%;
+  }
+}

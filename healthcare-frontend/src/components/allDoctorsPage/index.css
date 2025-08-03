@@ -1,0 +1,40 @@
+.doctors-container {
+  padding: 20px 10px;
+}
+
+.doctors-row {
+  margin-top: 20px;
+}
+
+.doctor-col {
+  margin-bottom: 20px;
+}
+
+/* --- Responsive Styling --- */
+
+/* Phones */
+@media (max-width: 768px) {
+  .doctors-container {
+    padding: 15px 5px;
+  }
+
+  .doctor-col {
+    margin-bottom: 16px;
+  }
+
+  .doctor-card {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* Laptops (optional tuning) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .doctors-container {
+    padding: 20px 15px;
+  }
+
+  .doctor-card {
+    font-size: 16px;
+  }
+}

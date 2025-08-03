@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Asha Mehta",
+    "specialization": "Cardiologist",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754048972/doctors/woman-medic-uniform-portrait_zdpl40.jpg",
+    "availability": "Available Today",
+    "description": "Expert in heart-related conditions.",
+    "schedule": {
+      "monday": "10:00 AM - 1:00 PM",
+      "tuesday": "Available Today",
+      "wednesday": "On Leave",
+      "thursday": "2:00 PM - 5:00 PM",
+      "friday": "10:00 AM - 1:00 PM",
+      "saturday": "Fully Booked",
+      "sunday": "On Leave"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Dr. Vikram Rao",
+    "specialization": "Dermatologist",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754048964/doctors/portrait-handsome-young-doctor_compressed_nyp98o.jpg",
+    "availability": "Fully Booked",
+    "description": "Specialist in skin conditions and treatment.",
+    "schedule": {
+      "monday": "1:00 PM - 4:00 PM",
+      "tuesday": "On Leave",
+      "wednesday": "10:00 AM - 1:00 PM",
+      "thursday": "Available Today",
+      "friday": "1:00 PM - 4:00 PM",
+      "saturday": "On Leave",
+      "sunday": "On Leave"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Dr. Nisha Roy",
+    "specialization": "Pediatrician",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754048969/doctors/portrait-beautiful-female-doctor_sylrhk.jpg",
+    "availability": "Available Today",
+    "description": "Experienced child health specialist.",
+    "schedule": {
+      "monday": "9:00 AM - 12:00 PM",
+      "tuesday": "Available Today",
+      "wednesday": "9:00 AM - 12:00 PM",
+      "thursday": "On Leave",
+      "friday": "9:00 AM - 12:00 PM",
+      "saturday": "On Leave",
+      "sunday": "On Leave"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Dr. Arjun Sharma",
+    "specialization": "Orthopedic",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754048964/doctors/portrait-professional-medical-worker-posing-picture-with-arms-folded_compressed_qvntto.jpg",
+    "availability": "On Leave",
+    "description": "Bone and joint specialist.",
+    "schedule": {
+      "monday": "Fully Booked",
+      "tuesday": "2:00 PM - 6:00 PM",
+      "wednesday": "On Leave",
+      "thursday": "2:00 PM - 6:00 PM",
+      "friday": "Fully Booked",
+      "saturday": "2:00 PM - 6:00 PM",
+      "sunday": "On Leave"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Dr. Kavya Iyer",
+    "specialization": "ENT Specialist",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754048031/doctors/i-trying-be-best-doctor_tozudf.jpg",
+    "availability": "Available Today",
+    "description": "Ear, nose, and throat specialist.",
+    "schedule": {
+      "monday": "10:00 AM - 1:00 PM",
+      "tuesday": "10:00 AM - 1:00 PM",
+      "wednesday": "Available Today",
+      "thursday": "On Leave",
+      "friday": "10:00 AM - 1:00 PM",
+      "saturday": "Fully Booked",
+      "sunday": "On Leave"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Dr. Rakesh Nair",
+    "specialization": "Neurologist",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754047947/doctors/woman-with-stethoscope-holding-clipboard_ultj0f.jpg",
+    "availability": "Fully Booked",
+    "description": "Brain and nervous system specialist.",
+    "schedule": {
+      "monday": "1:00 PM - 5:00 PM",
+      "tuesday": "Fully Booked",
+      "wednesday": "1:00 PM - 5:00 PM",
+      "thursday": "On Leave",
+      "friday": "1:00 PM - 5:00 PM",
+      "saturday": "Fully Booked",
+      "sunday": "On Leave"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Dr. Sneha Patil",
+    "specialization": "Gynecologist",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754047939/doctors/close-up-health-worker_kpq40o.jpg",
+    "availability": "Available Today",
+    "description": "Women's health and maternity expert.",
+    "schedule": {
+      "monday": "9:00 AM - 12:00 PM",
+      "tuesday": "Available Today",
+      "wednesday": "9:00 AM - 12:00 PM",
+      "thursday": "9:00 AM - 12:00 PM",
+      "friday": "Fully Booked",
+      "saturday": "On Leave",
+      "sunday": "On Leave"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Dr. Pranav Sinha",
+    "specialization": "General Physician",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754047938/doctors/medium-shot-smiley-doctor-with-coat_npcprz.jpg",
+    "availability": "On Leave",
+    "description": "Handles routine checkups and common illnesses.",
+    "schedule": {
+      "monday": "Available Today",
+      "tuesday": "On Leave",
+      "wednesday": "10:00 AM - 1:00 PM",
+      "thursday": "10:00 AM - 1:00 PM",
+      "friday": "10:00 AM - 1:00 PM",
+      "saturday": "On Leave",
+      "sunday": "On Leave"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Dr. Neeraj Singh",
+    "specialization": "Urologist",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754047934/doctors/close-up-doctor-getting-ready-work_oxm4dp.jpg",
+    "availability": "Available Today",
+    "description": "Urinary tract and male reproductive health expert.",
+    "schedule": {
+      "monday": "2:00 PM - 5:00 PM",
+      "tuesday": "Available Today",
+      "wednesday": "Fully Booked",
+      "thursday": "On Leave",
+      "friday": "2:00 PM - 5:00 PM",
+      "saturday": "Fully Booked",
+      "sunday": "On Leave"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Dr. Meenakshi Verma",
+    "specialization": "Psychiatrist",
+    "image": "https://res.cloudinary.com/reddyveteran/image/upload/v1754047937/doctors/beautiful-young-female-doctor-looking-camera-office_ayuqlk.jpg",
+    "availability": "Fully Booked",
+    "description": "Mental health and wellness expert.",
+    "schedule": {
+      "monday": "On Leave",
+      "tuesday": "1:00 PM - 4:00 PM",
+      "wednesday": "Fully Booked",
+      "thursday": "1:00 PM - 4:00 PM",
+      "friday": "1:00 PM - 4:00 PM",
+      "saturday": "On Leave",
+      "sunday": "On Leave"
+    }
+  }
+]

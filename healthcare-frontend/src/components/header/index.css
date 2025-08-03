@@ -1,0 +1,22 @@
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-weight: 600;
+}
+
+.nav-link {
+  font-size: 16px;
+  margin-left: 16px;
+}
+
+@media (max-width: 768px) {
+  .nav-link {
+    margin-left: 0;
+    padding: 8px 0;
+  }
+}

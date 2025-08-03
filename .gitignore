@@ -1,0 +1,17 @@
+# Ignore Node.js dependencies
+healthcare-backend/node_modules/
+healthcare-frontend/node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore build files
+healthcare-frontend/build/
+healthcare-backend/dist/
+
+# Ignore VSCode settings
+.vscode/
+
+# Mac and system files
+.DS_Store
+Thumbs.db

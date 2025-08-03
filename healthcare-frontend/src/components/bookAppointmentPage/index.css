@@ -1,0 +1,71 @@
+/* index.css */
+
+.book-appointment-container {
+  padding: 20px 10px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.book-appointment-form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.confirm-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* --- Responsive Design --- */
+
+/* For small screens: phones and small tablets */
+@media (max-width: 768px) {
+  .book-appointment-container {
+    padding: 10px 5px;
+  }
+
+  .book-appointment-form-wrapper {
+    padding: 16px;
+  }
+
+  .form-heading {
+    font-size: 20px;
+  }
+
+  .confirm-button {
+    font-size: 14px;
+  }
+}
+
+/* For laptops and small desktops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .book-appointment-form-wrapper {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .form-heading {
+    font-size: 22px;
+  }
+
+  .confirm-button {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,58 @@
+/* General styling */
+.appointments-heading {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.appointments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.appointment-item {
+  padding: 10px;
+}
+
+.card {
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Typography */
+.doctor-name {
+  color: #0d6efd;
+}
+
+.patient-name,
+.appointment-date,
+.appointment-time {
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Empty state */
+.no-appointments-text {
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .appointments-heading {
+    font-size: 1.5rem;
+  }
+
+  .doctor-name {
+    font-size: 1.1rem;
+  }
+
+  .patient-name,
+  .appointment-date,
+  .appointment-time {
+    font-size: 0.95rem;
+  }
+}
