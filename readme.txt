@@ -66,6 +66,7 @@ With more time and development, the app can be improved by:
 - 🛡️ **Input Validation and Error Handling** to improve user experience.
 - using params , hooks etc;
 - need to apply try and catch more..(error handling)
+- able edit appointments;
 
 ---
 
