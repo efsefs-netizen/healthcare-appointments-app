@@ -1,6 +1,6 @@
 const makeAppointment = async (appointmentDetails) => {
     try{
-        const response =  await fetch('http://localhost:3001/book-appointment',{
+        const response =  await fetch('https://healthcare-appointments-app.onrender.com/book-appointment',{
         method:'POST',
         headers: {
             'Content-Type': 'application/json'

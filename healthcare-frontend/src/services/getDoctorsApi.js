@@ -1,5 +1,5 @@
 const getDoctors = async () =>{
-    const response = await fetch('http://localhost:3001/fetch-doctors')
+    const response = await fetch('https://healthcare-appointments-app.onrender.com/fetch-doctors')
     const data = await response.json();
 
     return data;
