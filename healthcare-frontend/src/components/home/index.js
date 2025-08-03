@@ -20,7 +20,7 @@ const Home = () => {
               View All Doctors
             </button>
           </Link>
-          <Link to="/appointments/new">
+          <Link to="/my-Appointments">
             <button type="button" className="btn btn-outline-primary book-appointment-button">
               My Appointments
             </button>
