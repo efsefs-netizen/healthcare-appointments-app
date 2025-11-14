@@ -12,11 +12,11 @@
     //need for accessing and storing appointments
     const appointmentsFile = path.join(__dirname, 'data', 'appointments.json'); 
 
-    app.get('/fetch-doctors', (request, response) => {
+    app.get('/api/fetch-doctors', (request, response) => {
         response.json(doctors);
     })
 
-    app.get('/fetch-doctor-info/:doctorId', (request,response) =>{
+    app.get('/api/fetch-doctor-info/:doctorId', (request,response) =>{
         const doctorId = request.params.doctorId;
         const doctorData = doctors.find(doctor =>doctor.id === parseInt(doctorId));
         if(doctorData){
@@ -27,7 +27,7 @@
         }
     })
     
-    app.post('/book-appointment', (request, response) =>{
+    app.post('/api/book-appointment', (request, response) =>{
         const {doctorId, doctorName, patientName, appointmentDate, appointmentTime} = request.body;
         const newAppointment = {
             id: Date.now(),// Unique ID for the appointment
@@ -48,13 +48,25 @@
         response.status(201).json({message: "Appointment confirmed successfully!"});
     })
 
-    app.get('/my-appointments', (request, response) => {
+    app.get('/api/my-appointments', (request, response) => {
         if(fs.existsSync(appointmentsFile)){
             let readAppointments = fs.readFileSync(appointmentsFile);
             let appointments = JSON.parse(readAppointments);
             response.json(appointments);    
         }
     })
+
+    // Serve frontend build if present and fallback unknown non-API routes to index.html
+    const frontendBuildPath = path.join(__dirname, '..', 'healthcare-frontend', 'build');
+    if (fs.existsSync(frontendBuildPath)) {
+        app.use(express.static(frontendBuildPath));
+
+        // For any route not starting with /api, return index.html so React Router can handle it
+        app.get(/^\/(?!api).*/, (req, res) => {
+            res.sendFile(path.join(frontendBuildPath, 'index.html'));
+        });
+    }
+
 
 
 
