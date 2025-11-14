@@ -48,7 +48,7 @@
         response.status(201).json({message: "Appointment confirmed successfully!"});
     })
 
-    app.get('/fetch-appointments', (request, response) => {
+    app.get('/my-appointments', (request, response) => {
         if(fs.existsSync(appointmentsFile)){
             let readAppointments = fs.readFileSync(appointmentsFile);
             let appointments = JSON.parse(readAppointments);
