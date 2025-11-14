@@ -15,4 +15,4 @@ Content-Type: application/json
 }
 
 ### Fetch appointments
-GET http://localhost:3001/my-appointments
+GET http://localhost:3001/my-Appointments
