@@ -73,6 +73,20 @@
         }
     })
 
+    app.delete('/api/delete-appointment/:id', async (request, response) => {
+        try {
+            const appointmentId = request.params.id;
+            const result = await Appointment.findByIdAndDelete(appointmentId);
+            if (!result) {
+                return response.status(404).json({message: "Appointment not found"});
+            }
+            response.json({message: "Appointment deleted successfully!"});
+        } catch (err) {
+            console.error('Error deleting appointment:', err);
+            response.status(500).json({message: "Failed to delete appointment"});
+        }
+    })
+
     app.listen(3001, () =>{
         console.log('Server is running on port 3001');
     });

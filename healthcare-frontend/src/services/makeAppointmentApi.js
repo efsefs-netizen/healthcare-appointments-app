@@ -1,6 +1,7 @@
 const makeAppointment = async (appointmentDetails) => {
     try{
-        const response =  await fetch('https://healthcare-appointments-app.onrender.com/api/book-appointment',{
+        const apiUrl = process.env.REACT_APP_API_URL || 'https://healthcare-appointments-app.onrender.com';
+        const response =  await fetch(`${apiUrl}/api/book-appointment`,{
         method:'POST',
         headers: {
             'Content-Type': 'application/json'

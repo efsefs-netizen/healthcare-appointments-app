@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-/* Ensure the .App root sits above the background overlay */
-.App {
-  position: relative;
-  z-index: 1;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;

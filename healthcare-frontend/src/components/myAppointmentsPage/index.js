@@ -12,6 +12,27 @@ class MyAppointmentsPage extends Component {
         this.setState({ appointments, isLoading: false });
     }
 
+    deleteAppointment = async (appointmentId) => {
+        if (window.confirm("Are you sure you want to delete this appointment?")) {
+            try {
+                const response = await fetch(`/api/delete-appointment/${appointmentId}`, {
+                    method: 'DELETE'
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to delete appointment');
+                }
+                // Remove from state after successful deletion
+                this.setState(prevState => ({
+                    appointments: prevState.appointments.filter(apt => apt._id !== appointmentId)
+                }));
+                alert('Appointment deleted successfully!');
+            } catch (err) {
+                console.error('Error deleting appointment:', err);
+                alert('Failed to delete appointment. Please try again.');
+            }
+        }
+    }
+
     render() {
         const { appointments, isLoading } = this.state;
 
@@ -31,14 +52,20 @@ class MyAppointmentsPage extends Component {
                 ) : (
                     <ul className="appointments-list row gy-4">
                         {appointments.map(appointment => (
-                            <li key={appointment.id} className="appointment-item col-12 col-md-6">
+                            <li key={appointment._id} className="appointment-item col-12 col-md-6">
                                 <div className="card shadow-sm p-3">
                                     <h5 className="doctor-name fw-bold mb-2">
                                         Doctor: {appointment.doctorName}
                                     </h5>
                                     <p className="patient-name mb-1">Patient: {appointment.patientName}</p>
                                     <p className="appointment-date mb-1">Date: {appointment.appointmentDate}</p>
-                                    <p className="appointment-time mb-0">Time: {appointment.appointmentTime}</p>
+                                    <p className="appointment-time mb-1">Time: {appointment.appointmentTime}</p>
+                                    <button 
+                                        className="btn btn-danger btn-sm mt-2 btn-width"
+                                        onClick={() => this.deleteAppointment(appointment._id)}
+                                    >
+                                        Delete Appointment
+                                    </button>
                                 </div>
                             </li>
                         ))}

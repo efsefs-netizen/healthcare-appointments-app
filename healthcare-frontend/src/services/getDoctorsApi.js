@@ -1,5 +1,6 @@
 const getDoctors = async () =>{
-    const response = await fetch('https://healthcare-appointments-app.onrender.com/api/fetch-doctors')
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://healthcare-appointments-app.onrender.com';
+    const response = await fetch(`${apiUrl}/api/fetch-doctors`)
     const data = await response.json();
 
     return data;
