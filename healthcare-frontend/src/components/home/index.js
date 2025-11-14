@@ -27,7 +27,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
-
+      
       <div className="why-choose-us-section py-4">
         <h2 className="text-center mb-4">Why Choose Us?</h2>
         <ul className="list-unstyled text-center why-list">

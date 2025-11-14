@@ -2,17 +2,22 @@ import { Component } from "react";
 import getAppointments from "../../services/getAppointmentsApi";    
 import './index.css';
 import Header from "../header";
+import Loader from "../loader";
 
 class MyAppointmentsPage extends Component {
-    state = { appointments: [] };
+    state = { appointments: [], isLoading: true };
 
     async componentDidMount() {
         let appointments = await getAppointments();
-        this.setState({ appointments });
+        this.setState({ appointments, isLoading: false });
     }
 
     render() {
-        const { appointments } = this.state;
+        const { appointments, isLoading } = this.state;
+
+        if (isLoading) {
+            return <Loader />;
+        }
 
         return (
             <div className="appointments-container container py-4">

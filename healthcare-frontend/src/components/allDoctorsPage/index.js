@@ -1,21 +1,26 @@
 import { Component } from 'react';
 import DoctorCard from '../doctorCard';
 import getDoctors from '../../services/getDoctorsApi';
-import Header from '../header'; 
+import Header from '../header';
+import Loader from '../loader';
 
 import './index.css'; 
 
 class GetDoctorsPage extends Component {
-  state = { doctorsList: [] };
+  state = { doctorsList: [], isLoading: true };
 
   componentDidMount() {
     getDoctors().then(doctors => {
-      this.setState({ doctorsList: doctors });
+      this.setState({ doctorsList: doctors, isLoading: false });
     });
   }
 
   render() {
-    const { doctorsList } = this.state;
+    const { doctorsList, isLoading } = this.state;
+
+    if (isLoading) {
+      return <Loader />;
+    }
 
     return (
       <div className="doctors-container container">

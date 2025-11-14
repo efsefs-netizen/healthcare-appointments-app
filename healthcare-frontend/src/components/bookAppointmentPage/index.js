@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import getDoctorInfo from "../../services/getDoctorInfoApi";
 import makeAppointment from "../../services/makeAppointmentApi";
 import Header from "../header";
+import Loader from "../loader";
 import './index.css';
 
 class BookAppointment extends Component {
@@ -12,6 +13,8 @@ class BookAppointment extends Component {
     patientName: '',
     appointmentDate: '',
     appointmentTime: '',
+    isLoading: true,
+    isSubmitting: false,
     errors: {
       patientName: false,
       appointmentDate: false,
@@ -24,7 +27,7 @@ class BookAppointment extends Component {
     this.setState({ doctorId });
 
     const doctorData = await getDoctorInfo(doctorId);
-    this.setState({ doctorData });
+    this.setState({ doctorData, isLoading: false });
   }
 
   onPatientNameChange = (event) => {
@@ -67,6 +70,8 @@ class BookAppointment extends Component {
       return;
     }
 
+    this.setState({ isSubmitting: true });
+
     const appointmentDetails = {
       doctorId: doctorData.id,
       doctorName: doctorData.name,
@@ -78,14 +83,20 @@ class BookAppointment extends Component {
     try {
       await makeAppointment(appointmentDetails);
       alert("Appointment confirmed successfully!");
-      this.props.navigate('/my-Appointments');
+      this.props.navigate('/my-appointments');
     } catch (error) {
       alert("Failed to confirm appointment. Please try again later.");
+    } finally {
+      this.setState({ isSubmitting: false });
     }
   };
 
   render() {
-    const { doctorData, errors } = this.state;
+    const { doctorData, errors, isLoading, isSubmitting } = this.state;
+
+    if (isLoading) {
+      return <Loader />;
+    }
 
     return (
       <div className="book-appointment-container">
@@ -133,13 +144,14 @@ class BookAppointment extends Component {
               {errors.appointmentTime && <small className="error-text">Time is required</small>}
             </div>
 
-            <button type="submit" className="btn btn-primary confirm-button">
-              Confirm Appointment
+            <button type="submit" className="btn btn-primary confirm-button" disabled={isSubmitting}>
+              {isSubmitting ? 'Confirming...' : 'Confirm Appointment'}
             </button>
             <button
               type="button"
               className="btn btn-secondary confirm-button"
               onClick={() => this.props.navigate('/doctors')}
+              disabled={isSubmitting}
             >
               Go Back
             </button>
