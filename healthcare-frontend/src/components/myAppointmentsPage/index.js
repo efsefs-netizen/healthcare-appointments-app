@@ -1,5 +1,6 @@
 import { Component } from "react";
-import getAppointments from "../../services/getAppointmentsApi";    
+import getAppointments from "../../services/getAppointmentsApi";
+import deleteAppointmentApi from "../../services/deleteAppointmentApi";    
 import './index.css';
 import Header from "../header";
 import Loader from "../loader";
@@ -15,12 +16,7 @@ class MyAppointmentsPage extends Component {
     deleteAppointment = async (appointmentId) => {
         if (window.confirm("Are you sure you want to delete this appointment?")) {
             try {
-                const response = await fetch(`/api/delete-appointment/${appointmentId}`, {
-                    method: 'DELETE'
-                });
-                if (!response.ok) {
-                    throw new Error('Failed to delete appointment');
-                }
+                await deleteAppointmentApi(appointmentId);
                 // Remove from state after successful deletion
                 this.setState(prevState => ({
                     appointments: prevState.appointments.filter(apt => apt._id !== appointmentId)
