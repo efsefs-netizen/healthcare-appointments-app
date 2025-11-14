@@ -56,18 +56,6 @@
         }
     })
 
-    // Serve frontend build if present and fallback unknown non-API routes to index.html
-    const frontendBuildPath = path.join(__dirname, '..', 'healthcare-frontend', 'build');
-    if (fs.existsSync(frontendBuildPath)) {
-        app.use(express.static(frontendBuildPath));
-
-        // For any route not starting with /api, return index.html so React Router can handle it
-        app.get(/^\/(?!api).*/, (req, res) => {
-            res.sendFile(path.join(frontendBuildPath, 'index.html'));
-        });
-    }
-
-
 
 
     app.listen(3001, () =>{
