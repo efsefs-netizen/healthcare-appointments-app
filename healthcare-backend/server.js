@@ -1,3 +1,4 @@
+    require('dotenv').config(); // load .env file
     const express = require('express');
     const app = express();
     const cors = require('cors');
@@ -5,13 +6,22 @@
     app.use(express.json());
     const fs = require('fs');
     const path = require('path');
+    const mongoose = require('mongoose');
+    const Appointment = require('./models/Appointment');
+
+    // Connect to MongoDB Atlas
+    const mongoUri = process.env.MONGODB_URI;
+    if (!mongoUri) {
+      console.warn('MONGODB_URI not set in environment variables');
+    } else {
+      mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(() => console.log('✓ MongoDB Atlas connected'))
+        .catch(err => console.error('✗ MongoDB connection error:', err));
+    }
 
     //just for finding doctors
     const doctors = require('./data/doctors.json');
     
-    //need for accessing and storing appointments
-    const appointmentsFile = path.join(__dirname, 'data', 'appointments.json'); 
-
     app.get('/api/fetch-doctors', (request, response) => {
         response.json(doctors);
     })
@@ -27,36 +37,41 @@
         }
     })
     
-    app.post('/api/book-appointment', (request, response) =>{
-        const {doctorId, doctorName, patientName, appointmentDate, appointmentTime} = request.body;
-        const newAppointment = {
-            id: Date.now(),// Unique ID for the appointment
-            doctorId,
-            doctorName,
-            patientName,
-            appointmentDate,
-            appointmentTime,
-            status: 'confirmed' 
-        };
-        let appointments = [];
-        if(fs.existsSync(appointmentsFile)){
-            let readAppointments = fs.readFileSync(appointmentsFile);
-            appointments = JSON.parse(readAppointments);
-        }
-        appointments.push(newAppointment);
-        fs.writeFileSync(appointmentsFile, JSON.stringify(appointments, null, 2));
-        response.status(201).json({message: "Appointment confirmed successfully!"});
-    })
+    //need for accessing and storing appointments
+    const appointmentsFile = path.join(__dirname, 'data', 'appointments.json'); 
 
-    app.get('/api/my-appointments', (request, response) => {
-        if(fs.existsSync(appointmentsFile)){
-            let readAppointments = fs.readFileSync(appointmentsFile);
-            let appointments = JSON.parse(readAppointments);
-            response.json(appointments);    
+    
+    app.post('/api/book-appointment', async (request, response) => {
+        try {
+            const {doctorId, doctorName, patientName, appointmentDate, appointmentTime} = request.body;
+            
+            const newAppointment = new Appointment({
+                id: Date.now(),
+                doctorId,
+                doctorName,
+                patientName,
+                appointmentDate,
+                appointmentTime,
+                status: 'confirmed'
+            });
+
+            await newAppointment.save();
+            response.status(201).json({message: "Appointment confirmed successfully!", id: newAppointment._id});
+        } catch (err) {
+            console.error('Error saving appointment:', err);
+            response.status(500).json({message: "Failed to save appointment"});
         }
     })
 
-
+    app.get('/api/my-appointments', async (request, response) => {
+        try {
+            const appointments = await Appointment.find().sort({ createdAt: -1 }).lean();
+            response.json(appointments);
+        } catch (err) {
+            console.error('Error fetching appointments:', err);
+            response.status(500).json({message: "Failed to load appointments"});
+        }
+    })
 
     app.listen(3001, () =>{
         console.log('Server is running on port 3001');

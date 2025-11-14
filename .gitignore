@@ -9,6 +9,11 @@ healthcare-frontend/node_modules/
 healthcare-frontend/build/
 healthcare-backend/dist/
 
+# Ignore environment variables (credentials, secrets)
+.env
+.env.local
+healthcare-backend/.env
+
 # Ignore VSCode settings
 .vscode/
 
