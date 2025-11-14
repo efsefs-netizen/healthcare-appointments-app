@@ -70,22 +70,58 @@ With more time and development, the app can be improved by:
 
 ---
 
-## 📂 Folder Structure (Simplified)
+## 📂 Project Folder Structure (Actual)
 
-/healthcare-app
-├── /backend
-│ └── server.js
-├── /frontend
-│ ├── /components
-│ │ ├── AllDoctorsPage.js
-│ │ ├── BookAppointment.js
-│ │ └── MyAppointmentsPage.js
-│ ├── /services
-│ │ ├── getDoctorInfoApi.js
-│ │ ├── getAppointmentsApi.js
-│ │ └── makeAppointmentApi.js
-│ └── App.js
+This project lives under the `Healthcare_Appointments` folder. The simplified structure below reflects the current layout in the repository and where to find the frontend and backend code.
 
+Healthcare_Appointments/
+├── healthca re-backend/    (Express API)
+│   ├── server.js          # main Express server
+│   ├── package.json
+│   ├── .env               # local env (ignored by git) - contains MONGODB_URI
+│   ├── models/
+│   │   └── Appointment.js # Mongoose model (if using MongoDB)
+│   ├── data/
+│   │   ├── doctors.json
+│   │   └── appointments.json
+│   └── scripts/
+│       └── seedAppointments.js (optional migration/seed script)
+├── healthcare-frontend/   (React app)
+│   ├── package.json
+│   ├── public/
+│   │   └── index.html
+│   └── src/
+│       ├── index.js
+│       ├── App.js
+   │   
+│       ├── App.css
+│       ├── index.css
+│       ├── reportWebVitals.js
+│       ├── setupTests.js
+│       ├── components/
+│       │   ├── allDoctorsPage/
+│       │   │   ├── index.js
+│       │   │   └── index.css
+│       │   ├── bookAppointmentPage/
+│       │   │   ├── index.js
+│       │   │   └── index.css
+│       │   ├── myAppointmentsPage/
+│       │   │   ├── index.js
+│       │   │   └── index.css
+│       │   ├── doctorCard/
+│       │   ├── header/
+│       │   └── home/
+│       └── services/
+│           ├── getDoctorsApi.js
+│           ├── getDoctorInfoApi.js
+│           ├── getAppointmentsApi.js
+│           └── makeAppointmentApi.js
+└── mongodb/               (optional local/notes for DB)
+
+Notes:
+- Backend: `healthcare-backend/server.js` exposes API routes under `/api/*` (e.g. `/api/fetch-doctors`, `/api/book-appointment`, `/api/my-appointments`).
+- Frontend: React app (in `healthcare-frontend`) calls those API routes using relative paths `/api/...` (works with dev proxy or when backend serves the built frontend).
+- The repo contains a `.env` (local) for `MONGODB_URI` when using MongoDB Atlas — make sure `.env` is in `.gitignore`.
 
 ---
 
@@ -94,6 +130,8 @@ With more time and development, the app can be improved by:
 ✔️ MVP Completed  
 🚧 Additional features planned  
 🎯 Ready for enhancement and deployment
+
+now appointments can be accessed using MongoDb.
 
 ---
 
